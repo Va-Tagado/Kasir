@@ -1,0 +1,58 @@
+{
+  "common": {
+    "appName": "ApexPOS",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "search": "Cari",
+    "noData": "Tidak ada data",
+    "loading": "Memuat...",
+    "confirm": "Konfirmasi",
+    "yes": "Ya",
+    "no": "Tidak"
+  },
+  "auth": {
+    "username": "Nama Pengguna",
+    "password": "Kata Sandi",
+    "loginTitle": "Masuk ke ApexPOS",
+    "loginButton": "Masuk",
+    "errorCredentials": "Username atau password salah",
+    "errorRequired": "Semua field wajib diisi"
+  },
+  "sidebar": {
+    "pos": "Kasir",
+    "inventory": "Inventori",
+    "customers": "Pelanggan",
+    "reports": "Laporan",
+    "settings": "Pengaturan"
+  },
+  "pos": {
+    "title": "Point of Sale",
+    "searchPlaceholder": "Cari produk / scan barcode...",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "discount": "Diskon",
+    "tax": "Pajak",
+    "pay": "Bayar (F4)",
+    "clearCart": "Kosongkan Keranjang",
+    "emptyCart": "Keranjang kosong",
+    "paymentMethod": "Metode Pembayaran",
+    "cash": "Tunai",
+    "qris": "QRIS",
+    "card": "Kartu",
+    "transfer": "Transfer",
+    "addPayment": "Tambah Pembayaran",
+    "splitRemaining": "Sisa pembayaran",
+    "change": "Kembalian",
+    "refund": "Retur",
+    "selectCustomer": "Pilih Pelanggan",
+    "printReceipt": "Cetak Struk",
+    "downloadPdf": "Unduh PDF",
+    "quantity": "Qty",
+    "price": "Harga",
+    "itemDiscount": "Diskon Item"
+  }
+}
