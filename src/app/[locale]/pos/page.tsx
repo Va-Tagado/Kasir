@@ -91,4 +91,70 @@ export default function PosPage() {
       taxPercent: 0,
       taxAmount: 0,
       total: 0, // refund, customer tidak bayar
-      payments: [{ method: 'cash', amount
+      payments: [{ method: 'cash', amount: 0 }],
+      isRefund: true,
+      refundReason: reason,
+    };
+    const res = await fetch('/api/transactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    setLoading(false);
+    if (res.ok) {
+      setShowRefund(false);
+      clearCart();
+      alert('Retur berhasil diproses');
+    } else {
+      const data = await res.json();
+      alert(data.error || 'Gagal retur');
+    }
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row h-full">
+      {/* Kolom kiri - produk */}
+      <div className="flex-1 p-4 overflow-auto">
+        <h1 className="text-xl font-bold mb-3">{t('title')}</h1>
+
+        {/* Barcode mode: hardware (auto-fokus input) atau kamera */}
+        {barcodeMode === 'hardware' ? (
+          <input
+            id="product-search-hardware"
+            type="text"
+            className="w-full p-3 border rounded-lg mb-3 dark:bg-gray-800"
+            placeholder="Scan barcode hardware... (auto-enter)"
+            onKeyDown={e => { if (e.key === 'Enter') { handleBarcodeScan(e.currentTarget.value); e.currentTarget.value = ''; } }}
+          />
+        ) : (
+          <BarcodeScanner enabled={barcodeMode === 'camera'} onScan={handleBarcodeScan} />
+        )}
+
+        <ProductSearch onSelect={addToCart} />
+
+        {/* Diskon total & Pajak */}
+        <div className="mt-3 flex gap-3 text-sm">
+          <div>
+            <label className="block text-xs mb-1">{t('discount')} Total (Rp)</label>
+            <input type="number" value={discountTotal || ''} onChange={e => setDiscountTotal(Number(e.target.value) || 0)}
+              className="w-28 p-2 border rounded dark:bg-gray-800" />
+          </div>
+          <div>
+            <label className="block text-xs mb-1">{t('tax')} (%)</label>
+            <input type="number" value={taxPercent || ''} onChange={e => setTaxPercent(Number(e.target.value) || 0)}
+              className="w-20 p-2 border rounded dark:bg-gray-800" />
+          </div>
+          <div className="flex items-end pb-2">
+            <CustomerSelect selected={customer} onSelect={setCustomer} />
+          </div>
+        </div>
+      </div>
+
+      {/* Kolom kanan - keranjang */}
+      <Cart items={cart} discountTotal={discountTotal} taxPercent={taxPercent}
+        onUpdateItem={updateItem} onRemoveItem={removeItem} onClearCart={clearCart}
+        onOpenPayment={() => setShowPayment(true)} onOpenRefund={() => setShowRefund(true)} />
+
+      {/* Modals */}
+      <PaymentModal isOpen={showPayment} total={total} onClose={() => setShowPayment(false)} onConfirm={handlePayment} loading={loading} />
+      <RefundModal isOpen={showRefund} onClose={() => setShowRefund(false)} onSubmit={handleRefund} />
+      {showReceipt && lastTransaction && <ReceiptPreview data={lastTransaction} onClose={() => setShowReceipt(false)} />}
+    </div>
+  );
+}
