@@ -1,0 +1,58 @@
+{
+  "common": {
+    "appName": "ApexPOS",
+    "login": "Login",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "noData": "No data",
+    "loading": "Loading...",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "auth": {
+    "username": "Username",
+    "password": "Password",
+    "loginTitle": "Login to ApexPOS",
+    "loginButton": "Login",
+    "errorCredentials": "Invalid username or password",
+    "errorRequired": "All fields are required"
+  },
+  "sidebar": {
+    "pos": "POS",
+    "inventory": "Inventory",
+    "customers": "Customers",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "pos": {
+    "title": "Point of Sale",
+    "searchPlaceholder": "Search product / scan barcode...",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "tax": "Tax",
+    "pay": "Pay (F4)",
+    "clearCart": "Clear Cart",
+    "emptyCart": "Cart is empty",
+    "paymentMethod": "Payment Method",
+    "cash": "Cash",
+    "qris": "QRIS",
+    "card": "Card",
+    "transfer": "Transfer",
+    "addPayment": "Add Payment",
+    "splitRemaining": "Remaining",
+    "change": "Change",
+    "refund": "Refund",
+    "selectCustomer": "Select Customer",
+    "printReceipt": "Print Receipt",
+    "downloadPdf": "Download PDF",
+    "quantity": "Qty",
+    "price": "Price",
+    "itemDiscount": "Item Discount"
+  }
+}
